@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>cn.houtaroy</groupId>
+    <artifactId>spring-boot-koala</artifactId>
+    <packaging>pom</packaging>
+    <version>${revision}</version>
+    <description>Spring Boot Koala</description>
+    <properties>
+        <revision>2021.1.2-SNAPSHOT</revision>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <integration.version>5.3.2.RELEASE</integration.version>
+        <maven-flatten-plugin.version>1.0.1</maven-flatten-plugin.version>
+        <github.global.server>github</github.global.server>
+    </properties>
+
+    <modules>
+        <module>spring-boot-koala-dependencies</module>
+        <module>spring-boot-koala-build</module>
+        <module>spring-boot-koala-starters</module>
+    </modules>
+    <developers>
+        <developer>
+            <name>Houtaroy</name>
+            <email>Houtaroy@gmail.com</email>
+        </developer>
+    </developers>
+
+    <distributionManagement>
+        <repository>
+            <id>Houtaroy Local</id>
+            <url>file:D:/Document/maven-repo</url>
+        </repository>
+    </distributionManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>${maven-flatten-plugin.version}</version>
+                <inherited>true</inherited>
+                <executions>
+                    <execution>
+                        <!-- Tidy up all POMs before they are published -->
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                        <configuration>
+                            <updatePomFile>true</updatePomFile>
+                            <flattenMode>bom</flattenMode>
+                            <embedBuildProfileDependencies>true</embedBuildProfileDependencies>
+                            <pomElements>
+                                <parent>expand</parent>
+                                <distributionManagement>remove</distributionManagement>
+                                <repositories>remove</repositories>
+                            </pomElements>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.github.github</groupId>
+                <artifactId>site-maven-plugin</artifactId>
+                <version>0.12</version>
+                <configuration>
+                    <message>Maven artifacts for ${project.artifactId} ${project.version}</message>
+                    <noJekyll>true</noJekyll>
+                    <outputDirectory>D:/Document/maven-repo</outputDirectory>
+                    <branch>refs/heads/main</branch>
+                    <includes>
+                        <include>**/*</include>
+                    </includes>
+                    <repositoryName>maven-repo</repositoryName>
+                    <repositoryOwner>Houtaroy</repositoryOwner>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>site</goal>
+                        </goals>
+                        <phase>deploy</phase>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
