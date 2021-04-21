@@ -9,16 +9,19 @@
     <version>${revision}</version>
     <description>Spring Boot Koala</description>
     <properties>
-        <revision>2021.1.2-SNAPSHOT</revision>
+        <revision>2021.1.0-SNAPSHOT</revision>
         <java.version>1.8</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
-        <integration.version>5.3.2.RELEASE</integration.version>
-        <maven-flatten-plugin.version>1.0.1</maven-flatten-plugin.version>
         <github.global.server>github</github.global.server>
+        <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
+        <maven-flatten-plugin.version>1.0.1</maven-flatten-plugin.version>
+        <maven-pmd-plugin.version>3.8</maven-pmd-plugin.version>
+        <p3c-pmd.version>1.3.5</p3c-pmd.version>
+        <maven-checkstyle-plugin.version>3.0.0</maven-checkstyle-plugin.version>
+        <checkstyle.version>8.8</checkstyle.version>
     </properties>
 
     <modules>
@@ -42,6 +45,21 @@
 
     <build>
         <plugins>
+            <!--包含源码-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${maven-source-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!--处理多项目无法使用共同版本号revision-->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>flatten-maven-plugin</artifactId>
@@ -68,6 +86,7 @@
                     </execution>
                 </executions>
             </plugin>
+            <!--自动发布到github仓库-->
             <plugin>
                 <groupId>com.github.github</groupId>
                 <artifactId>site-maven-plugin</artifactId>

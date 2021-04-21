@@ -1,4 +1,4 @@
-# spring-boot-koala
+# spring-boot-koala 2021.1.0-SNAPSHOT
 
 ## 介绍
 
@@ -33,7 +33,7 @@
 <dependency>
   <groupId>cn.houtaroy</groupId>
   <artifactId>spring-boot-koala-starter-mqtt-auto</artifactId>
-  <version>2021.1.1-SNAPSHOT</version>
+  <version>2021.1.0-SNAPSHOT</version>
 </dependency>
 ```
 
