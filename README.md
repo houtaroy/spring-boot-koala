@@ -14,8 +14,8 @@
 
 ```xml
 <repository>
-    <id>spring-boot-koala</id>
-    <name>spring-boot-koala</name>
+    <id>Spring Boot Koala</id>
+    <name>Spring Boot Koala</name>
     <url>https://raw.github.com/Houtaroy/maven-repo/main</url>
     <snapshots>
         <enabled>true</enabled>
@@ -28,12 +28,30 @@
 ```
 
 在pom.xml中引入
+
 ```xml
 <dependency>
   <groupId>cn.houtaroy</groupId>
   <artifactId>spring-boot-koala-starter-mqtt-auto</artifactId>
   <version>2021.1.1-SNAPSHOT</version>
 </dependency>
+```
+
+如果github的源存在问题, 可以改用gitee:
+
+```xml
+<repository>
+    <id>Spring Boot Koala</id>
+    <name>Spring Boot Koala</name>
+    <url>https://gitee.com/houtaroy/maven-repo/raw/main/</url>
+    <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>always</updatePolicy>
+    </snapshots>
+    <releases>
+        <enabled>true</enabled>
+    </releases>
+</repository>
 ```
 
 #### 生产者配置示例
