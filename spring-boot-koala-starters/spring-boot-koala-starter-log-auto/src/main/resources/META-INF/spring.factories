@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+ cn.houtaroy.springboot.koala.starter.log.config.KoalaLogConfig

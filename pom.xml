@@ -27,6 +27,8 @@
     <modules>
         <module>spring-boot-koala-dependencies</module>
         <module>spring-boot-koala-build</module>
+        <module>spring-boot-koala-domain</module>
+        <module>spring-boot-koala-tools</module>
         <module>spring-boot-koala-starters</module>
     </modules>
     <developers>

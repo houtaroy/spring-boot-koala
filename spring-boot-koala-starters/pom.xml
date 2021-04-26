@@ -14,5 +14,7 @@
   </parent>
   <modules>
     <module>spring-boot-koala-starter-mqtt-auto</module>
+    <module>spring-boot-koala-starter-log-auto</module>
+    <module>spring-boot-koala-starter-security</module>
   </modules>
 </project>

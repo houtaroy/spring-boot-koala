@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>spring-boot-koala-starter-security</artifactId>
+  <packaging>jar</packaging>
+  <description>Spring Boot Security 快速启动</description>
+
+  <parent>
+    <groupId>cn.houtaroy</groupId>
+    <artifactId>spring-boot-koala-build</artifactId>
+    <version>${revision}</version>
+    <relativePath>../../spring-boot-koala-build</relativePath>
+  </parent>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-security</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>cn.houtaroy</groupId>
+      <artifactId>spring-boot-koala-domain</artifactId>
+    </dependency>
+  </dependencies>
+
+</project>
