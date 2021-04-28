@@ -47,7 +47,7 @@ public class LogEvaluator {
      * @return 翻译后表达式
      */
     private Expression getExpression(String expression) {
-        return getParser().parseExpression(expression);
+        return getParser().parseExpression(expression, template);
     }
 
 }

@@ -25,6 +25,10 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
+    </dependency>
+    <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-core</artifactId>
     </dependency>
@@ -34,7 +38,7 @@
     </dependency>
     <dependency>
       <groupId>cn.houtaroy</groupId>
-      <artifactId>spring-boot-koala-starter-security</artifactId>
+      <artifactId>spring-boot-koala-domain</artifactId>
     </dependency>
     <dependency>
       <groupId>cn.houtaroy</groupId>

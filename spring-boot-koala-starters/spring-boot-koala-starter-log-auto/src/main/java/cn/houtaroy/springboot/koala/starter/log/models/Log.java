@@ -2,6 +2,7 @@ package cn.houtaroy.springboot.koala.starter.log.models;
 
 import cn.houtaroy.springboot.koala.domain.models.BaseAudit;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
@@ -9,6 +10,7 @@ import lombok.experimental.SuperBuilder;
  * @author Houtaroy
  */
 @Data
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @SuperBuilder(toBuilder = true)
 public class Log extends BaseAudit<Long> {

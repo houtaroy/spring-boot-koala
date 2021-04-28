@@ -6,7 +6,6 @@ import cn.houtaroy.springboot.koala.starter.log.models.Log;
 import cn.houtaroy.springboot.koala.starter.log.models.LogEvaluationContext;
 import cn.houtaroy.springboot.koala.starter.log.models.LogEvaluator;
 import cn.houtaroy.springboot.koala.starter.log.models.LogRootObject;
-import cn.houtaroy.springboot.koala.starter.security.utils.SecurityUtil;
 import cn.houtaroy.springboot.koala.tools.IpUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -48,7 +47,7 @@ public class KoalaLogAspect {
     /**
      * 日志切入点
      */
-    @Pointcut(value = "@annotation(cn.houtaroy.springboot.koala.businesslog.annotations.KoalaLog)")
+    @Pointcut(value = "@annotation(cn.houtaroy.springboot.koala.starter.log.annotations.KoalaLog)")
     public void logPointCut() {
     }
 
@@ -98,8 +97,7 @@ public class KoalaLogAspect {
         LogRootObject rootObject = new LogRootObject(method, args, targetClass);
         LogEvaluationContext context = new LogEvaluationContext(rootObject, evaluator.getDiscoverer());
         Object content = evaluator.parse(annotation.content(), context);
-        Log koalaLog = Log.builder().type(annotation.type()).content(content.toString()).createTime(new Date())
-                .createUser(SecurityUtil.currentUser()).build();
+        Log koalaLog = Log.builder().type(annotation.type()).content(content.toString()).createTime(new Date()).build();
         try {
             koalaLog.setArguments(objectMapper.writeValueAsString(args));
         } catch (JsonProcessingException e) {
