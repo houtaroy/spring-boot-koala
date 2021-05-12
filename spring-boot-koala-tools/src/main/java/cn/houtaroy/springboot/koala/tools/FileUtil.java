@@ -38,4 +38,16 @@ public class FileUtil extends FileUtils {
         moveFile(new File(source), targetFile);
     }
 
+    /**
+     * 静默删除, 不抛出异常
+     *
+     * @param filePathName 文件全路径名称
+     */
+    public static void deleteQuietly(String filePathName) {
+        if (filePathName == null) {
+            return;
+        }
+        FileUtils.deleteQuietly(new File(filePathName));
+    }
+
 }
