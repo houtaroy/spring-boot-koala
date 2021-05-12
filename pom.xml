@@ -28,6 +28,7 @@
         <module>spring-boot-koala-dependencies</module>
         <module>spring-boot-koala-build</module>
         <module>spring-boot-koala-domain</module>
+        <module>spring-boot-koala-mybatis</module>
         <module>spring-boot-koala-tools</module>
         <module>spring-boot-koala-starters</module>
     </modules>
@@ -89,30 +90,30 @@
                 </executions>
             </plugin>
             <!--自动发布到github仓库-->
-            <plugin>
-                <groupId>com.github.github</groupId>
-                <artifactId>site-maven-plugin</artifactId>
-                <version>0.12</version>
-                <configuration>
-                    <message>Maven artifacts for ${project.artifactId} ${project.version}</message>
-                    <noJekyll>true</noJekyll>
-                    <outputDirectory>D:/Document/maven-repo</outputDirectory>
-                    <branch>refs/heads/main</branch>
-                    <includes>
-                        <include>**/*</include>
-                    </includes>
-                    <repositoryName>maven-repo</repositoryName>
-                    <repositoryOwner>Houtaroy</repositoryOwner>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>site</goal>
-                        </goals>
-                        <phase>deploy</phase>
-                    </execution>
-                </executions>
-            </plugin>
+            <!--<plugin>-->
+            <!--    <groupId>com.github.github</groupId>-->
+            <!--    <artifactId>site-maven-plugin</artifactId>-->
+            <!--    <version>0.12</version>-->
+            <!--    <configuration>-->
+            <!--        <message>Maven artifacts for ${project.artifactId} ${project.version}</message>-->
+            <!--        <noJekyll>true</noJekyll>-->
+            <!--        <outputDirectory>D:/Document/maven-repo</outputDirectory>-->
+            <!--        <branch>refs/heads/main</branch>-->
+            <!--        <includes>-->
+            <!--            <include>**/*</include>-->
+            <!--        </includes>-->
+            <!--        <repositoryName>maven-repo</repositoryName>-->
+            <!--        <repositoryOwner>Houtaroy</repositoryOwner>-->
+            <!--    </configuration>-->
+            <!--    <executions>-->
+            <!--        <execution>-->
+            <!--            <goals>-->
+            <!--                <goal>site</goal>-->
+            <!--            </goals>-->
+            <!--            <phase>deploy</phase>-->
+            <!--        </execution>-->
+            <!--    </executions>-->
+            <!--</plugin>-->
         </plugins>
     </build>
 </project>

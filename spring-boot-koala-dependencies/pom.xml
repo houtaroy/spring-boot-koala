@@ -20,6 +20,7 @@
     <servlet-api.version>3.1.0</servlet-api.version>
     <common-io.version>2.8.0</common-io.version>
     <common-lang3.version>3.12.0</common-lang3.version>
+    <pagehelper.version>1.3.0</pagehelper.version>
   </properties>
 
 
@@ -45,6 +46,11 @@
         <version>${spring-boot.version}</version>
         <type>pom</type>
         <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.github.pagehelper</groupId>
+        <artifactId>pagehelper-spring-boot-starter</artifactId>
+        <version>${pagehelper.version}</version>
       </dependency>
       <!--web基础-->
       <dependency>
@@ -84,6 +90,11 @@
       <dependency>
         <groupId>cn.houtaroy</groupId>
         <artifactId>spring-boot-koala-domain</artifactId>
+        <version>${revision}</version>
+      </dependency>
+      <dependency>
+        <groupId>cn.houtaroy</groupId>
+        <artifactId>spring-boot-koala-mybatis</artifactId>
         <version>${revision}</version>
       </dependency>
       <dependency>

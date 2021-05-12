@@ -7,6 +7,7 @@ import cn.houtaroy.springboot.koala.starter.log.models.LogEvaluationContext;
 import cn.houtaroy.springboot.koala.starter.log.models.LogEvaluator;
 import cn.houtaroy.springboot.koala.starter.log.models.LogRootObject;
 import cn.houtaroy.springboot.koala.tools.IpUtil;
+import cn.houtaroy.springboot.koala.tools.JacksonUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -39,12 +40,6 @@ public class KoalaLogAspect {
     private final LogEvaluator evaluator = new LogEvaluator();
 
     /**
-     * jackson
-     */
-    @Autowired
-    private ObjectMapper objectMapper;
-
-    /**
      * 日志切入点
      */
     @Pointcut(value = "@annotation(cn.houtaroy.springboot.koala.starter.log.annotations.KoalaLog)")
@@ -62,7 +57,7 @@ public class KoalaLogAspect {
         // 记录正常日志
         Log koalaLog = generateLog(joinPoint);
         try {
-            koalaLog.setReturnValue(objectMapper.writeValueAsString(returnValue));
+            koalaLog.setReturnValue(JacksonUtil.dump(returnValue));
         } catch (JsonProcessingException e) {
             log.error("KOALA-LOG: 序列化返回值失败", e);
         }
@@ -99,7 +94,7 @@ public class KoalaLogAspect {
         Object content = evaluator.parse(annotation.content(), context);
         Log koalaLog = Log.builder().type(annotation.type()).content(content.toString()).createTime(new Date()).build();
         try {
-            koalaLog.setArguments(objectMapper.writeValueAsString(args));
+            koalaLog.setArguments(JacksonUtil.dump(args));
         } catch (JsonProcessingException e) {
             log.error("KOALA-LOG: 序列化方法参数失败", e);
         }
