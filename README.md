@@ -1,5 +1,7 @@
 # spring-boot-koala 2021.1.0-SNAPSHOT
 
+*本项目已重构升级并迁移至[Koala](https://github.com/koala-projects/koala), 后续不会进行更新维护*
+
 ## 介绍
 
 集成Spring Boot, 实现部分方便快捷的starter
